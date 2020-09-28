@@ -7,12 +7,23 @@ public class Song {
     double timing;
     String lyrics;
 
-    public Song() {
-        title = "High way to Hell";
-        genre = "rock";
-        timing = 3.54;
-        lyrics = "Song's text here...";
+    /**
+     * Constructor to generate Song's object
+     * @param title
+     * @param genre
+     * @param timing
+     * @param lyrics
+     */
+    public Song(String title, String genre, double timing, String lyrics) {
+        if(!title.isEmpty() && !genre.isEmpty() && !lyrics.isEmpty() && timing!=0.0) {
+            this.title = title;
+            this.genre = genre;
+            this.timing = timing;
+            this.lyrics = lyrics;
+        }
     }
+
+
 
     /**
      * Method to get class's characteristics in a String format
@@ -23,6 +34,13 @@ public class Song {
                 "Genre: " + genre + "\n" +
                 "Timing " + timing + "\n" +
                 "Lyrics" + lyrics + "\n";
+    }
+
+    /**
+     * This method prints the class's characteristics to the console
+     */
+    public void printSongs() {
+        System.out.println(toString());
     }
 
     /**
