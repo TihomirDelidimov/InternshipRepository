@@ -63,10 +63,10 @@ public class Song {
      * @return true or false
      */
     public boolean compareGenre(String genre) {
-        if (this.genre.equalsIgnoreCase(genre))
-            return true;
-        else
+        if(genre == null || genre.isEmpty()) {
             return false;
+        }
+        return genre.equalsIgnoreCase(this.genre);
     }
 
     /**
