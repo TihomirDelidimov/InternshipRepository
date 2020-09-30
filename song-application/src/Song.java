@@ -35,7 +35,7 @@ public class Song {
      * @return - This method return true if the parameters are valid and false if they are not
      */
     private boolean isValid(String title, Genre genre, double timing, String lyrics) {
-        if(title != null && genre != null && lyrics != null &&
+        if (title != null && genre != null && lyrics != null &&
                 !title.isEmpty() && !lyrics.isEmpty() && timing > 0.0) {
             return true;
         }
@@ -79,7 +79,7 @@ public class Song {
      * @return boolean - this method return true if the genre parameter is equal to the genre of the object, else it return false
      */
     public boolean compareGenre(Genre genre) {
-        if(genre!=null && genre == this.genre) {
+        if (genre != null && genre == this.genre) {
             return true;
         }
         return false;
