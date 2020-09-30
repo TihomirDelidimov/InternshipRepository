@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -16,25 +17,30 @@ public class Author {
     private int age;
 
     /**
-     * Constructor for initializing the Author object with values for the author.
+     * Constructor for initializing the Author object with values for the author and songs for him.
+     * This constructor works with array of Song objects
      */
-    public Author(String name, int age, Song song) {
-        this.name = name;
-        this.age = age;
-        songs.add(song);
+    public Author(String name, int age, Song... songs) {
+        if (isValid(name, age, songs)) {
+            this.name = name;
+            this.age = age;
+            this.songs = new ArrayList<>(Arrays.asList(songs));
+        }
     }
 
     /**
-     * Constructor for initializing the Author object with vales. This constructor creates author with
+     * This method checks for valid Author parameters
      *
      * @param name  - this parameter is the name of the author
      * @param age   - this parameter is the age of the author
-     * @param songs - this is list of the songs added to the author
+     * @param songs - this parameter is the actual song or songs of the author
+     * @return - this method returns true if the parameters are valid and else if they are not
      */
-    public Author(String name, int age, ArrayList<Song> songs) {
-        this.name = name;
-        this.age = age;
-        this.songs.addAll(songs);
+    private boolean isValid(String name, int age, Song... songs) {
+        if (name != null && age > 0 && age < 125 && songs.length > 0 && !name.isEmpty()) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -44,7 +50,7 @@ public class Author {
      * @param song - this parameter represents the actual song of the author
      * @return boolean - return true if the song parameter is added to the list, else return false
      */
-    public boolean addSong(Song song) {
+    public boolean add(Song song) {
         if (song != null) {
             songs.add(song);
             return true;
@@ -73,11 +79,9 @@ public class Author {
      */
     public String getSongs() {
         StringBuilder authorSongs = new StringBuilder();
-        authorSongs.append("Songs: \n");
-        for (Song song : songs) {
-            authorSongs.append(song.toString());
-        }
-        authorSongs.append("\nAuthor of those songs is: ")
+        authorSongs.append("Songs: \n")
+                .append(songs)
+                .append("\nAuthor of those songs is: ")
                 .append(getName());
 
         return authorSongs.toString();

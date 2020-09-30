@@ -68,7 +68,7 @@ public class Song {
     public String toString() {
         return "\nTitle: " + title + "\n" +
                 "Genre: " + genre + "\n" +
-                "Timing " + timing + "\n" +
+                "Timing: " + timing + "\n" +
                 "Lyrics" + lyrics + "\n";
     }
 
