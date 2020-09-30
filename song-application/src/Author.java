@@ -11,9 +11,9 @@ import java.util.List;
  */
 public class Author {
 
-    String name;
-    List<Song> songs = new ArrayList<Song>();
-    int age;
+    private String name;
+    private List<Song> songs = new ArrayList<>();
+    private int age;
 
     /**
      * Constructor for initializing the Author object with values for the author.
@@ -25,7 +25,7 @@ public class Author {
     }
 
     /**
-     * Constructor for initializing the Author object with vales. It takes
+     * Constructor for initializing the Author object with vales. This constructor creates author with
      *
      * @param name  - this parameter is the name of the author
      * @param age   - this parameter is the age of the author
@@ -48,17 +48,18 @@ public class Author {
         if (song != null) {
             songs.add(song);
             return true;
-        } else return false;
+        }
+        return false;
     }
 
-    public String getAuthorName() {
+    public String getName() {
         return name;
     }
 
     /**
      * Method go get the object fields as String
      *
-     * @return - this methods returns String, which represent object fields
+     * @return String - this methods returns String, which represent object fields
      */
     public String toString() {
         return "\n" + "Author's name is: " + name +
@@ -70,13 +71,14 @@ public class Author {
      *
      * @return String - The returned string is formatted output of the songs for the current author
      */
-    public String getAuthorSongs() {
+    public String getSongs() {
         StringBuilder authorSongs = new StringBuilder();
         authorSongs.append("Songs: \n");
         for (Song song : songs) {
             authorSongs.append(song.toString());
         }
-        authorSongs.append("\n Author of those songs is:" + getAuthorName());
+        authorSongs.append("\nAuthor of those songs is: ")
+                .append(getName());
 
         return authorSongs.toString();
     }
